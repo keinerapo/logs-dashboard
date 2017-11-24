@@ -1,4 +1,1 @@
-(function () {
-    'use strict';
-    angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies', 'datatables', 'ngTable']);
-})();
+angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies']);
