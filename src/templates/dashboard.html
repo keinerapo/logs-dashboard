@@ -1,6 +1,45 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body table-responsive responsive to-table">
+                    <br />
+                    <br />
+                    <table datatable="ng" class="table table-striped table-hover table-bordered table-responsive responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-center">State Code</th>
+                                <th class="text-center">Pro Code</th>
+                                <th class="text-center">Profession</th>
+                                <th class="text-center">License ID</th>
+                                <th class="text-center">Cycle End Date</th>
+                                <th class="text-center">Compliance Status</th>
+                                <th class="text-center">Client ID</th>
+                                <th class="text-center">Start Log Date</th>
+                                <th class="text-center">End Log Date</th>
+                                <th class="text-center">Environment</th>
+                                <th class="text-center">Machine</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="log in vm.logs">
+                                <td class="text-center">{{log.cd_cebroker_state}}</td>
+                                <td class="text-center">{{log.pro_cde}}</td>
+                                <td class="text-center">{{log.cd_profession}}</td>
+                                <td class="text-center">{{log.id_license}}</td>
+                                <td class="text-center">{{log.dt_end}}</td>
+                                <td class="text-center">{{log.ds_compl_status_returned}}</td>
+                                <td class="text-center">{{log.id_client_nbr}}</td>
+                                <td class="text-center">{{log.dt_Start_Log}}</td>
+                                <td class="text-center">{{log.dt_end_log}}</td>
+                                <td class="text-center">{{log.cd_environment}}</td>
+                                <td class="text-center">{{log.cd_machine}}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </section>
