@@ -1,38 +1,39 @@
 {
-    "name": "rdash-angular",
-    "version": "0.0.1",
-    "description": "An AngularJS implementation of the responsive dashboard",
-    "homepage": "https://github.com/Ehesp/Responsive-Dashboard",
-    "authors": [
+  "name": "rdash-angular",
+  "version": "0.0.1",
+  "description": "An AngularJS implementation of the responsive dashboard",
+  "homepage": "https://github.com/Ehesp/Responsive-Dashboard",
+  "authors": [
     "Elliot Hesp <elliot.hesp@gmail.com>"
   ],
-    "contributors": [
+  "contributors": [
     "Ricardo Pascua Jr <rdpascua@outlook.com>",
     "Leonel Samayoa <leonel.e.samayoa@gmail.com>"
   ],
-    "main": "index.html",
-    "license": "MIT",
-    "ignore": [
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
-    "dependencies": {
-        "rdash-ui": "1.0.*",
-        "angular": "~1.5.0",
-        "angular-cookies": "~1.5.0",
-        "angular-bootstrap": "~1.0.3",
-        "angular-ui-router": "^0.2.15",
-        "bootstrap": "~3.3.6",
-        "font-awesome": "~4.5.0",
-        "datatables.net": "^1.10.13",
-        "datatables.net-bs": "^1.10.13",
-        "angular-datatables": "^0.5.6"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/rdash/rdash-angular"
-    }
+  "dependencies": {
+    "rdash-ui": "1.0.*",
+    "angular": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-bootstrap": "~1.0.3",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "datatables.net": "^1.10.13",
+    "datatables.net-bs": "^1.10.13",
+    "angular-datatables": "^0.5.6",
+    "angular-nvd3": "^1.0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rdash/rdash-angular"
+  }
 }

@@ -24,6 +24,7 @@
         vm.open2 = open2;
         vm.setEndDateOptions = setEndDateOptions;
         vm.searchLogs = searchLogs;
+        vm.t_average_resp = 0.0;
 
 
         //Init
@@ -93,18 +94,95 @@
         }
 
         function calStatistics() {
+            cal_t_average();
+            generate_graph_per_days();
+        }
+
+        function cal_t_average() {
             var t = 0;
             var sum = 0;
-            angular.forEach(vm.logs,function(value,key){
+            angular.forEach(vm.logs, function (value, key) {
                 var start = moment(value.dt_Start_Log);
                 var end = moment(value.dt_end_log);
                 var dif = end.diff(start);
-                console.log(dif);
                 sum = sum + dif;
-                t = t +1;
+                t = t + 1;
             });
-            vm.t_average_resp = sum/t;
-            console.log(vm.t_average_resp);
+            vm.t_average_resp = sum / t;
+        }
+
+        function generate_graph_per_days() {
+            vm.options = {
+                chart: {
+                    type: 'lineChart',
+                    height: 450,
+                    margin: {
+                        top: 20,
+                        right: 20,
+                        bottom: 40,
+                        left: 55
+                    },
+                    x: function (d) {
+                        return d.x;
+                    },
+                    y: function (d) {
+                        return d.y;
+                    },
+                    useInteractiveGuideline: true,
+                    xAxis: {
+                        axisLabel: 'Days (DD)'
+                    },
+                    yAxis: {
+                        axisLabel: 'Average Response Time (ART)',
+                        tickFormat: function (d) {
+                            return d3.format('.02f')(d);
+                        },
+                        axisLabelDistance: -10
+                    }
+                },
+                title: {
+                    enable: true,
+                    text: 'Average Response Time per Day'
+                }
+            };
+
+            vm.data = generate_data();
+            console.log(vm.data);
+        }
+
+        function generate_data() {
+            var data = [];
+            var day = new Date(vm.logs[0].dt_Start_Log);
+            day = day.getDay();
+            var t = 0;
+            var sum = 0;
+            angular.forEach(vm.logs, function (value, key) {
+                var new_day = new Date(value.dt_Start_Log);
+                console.log(day + ' - ' + new_day);
+                new_day = new_day.getDay();
+                console.log(day + ' - ' + new_day);
+                if (day !== new_day) {
+                    data.push({
+                        x: day,
+                        y: sum / t
+                    })
+                    day = new_day;
+                    t = 0;
+                    sum = 0;
+                }
+                var start = moment(value.dt_Start_Log);
+                var end = moment(value.dt_end_log);
+                var dif = end.diff(start);
+                sum = sum + dif;
+                t = t + 1;
+            });
+            return [
+                {
+                    values: data, //values - represents the array of {x,y} data points
+                    key: 'Average Response Time per Day', //key  - the name of the series.
+                    color: '#ff7f0e'
+                }
+                    ];
         }
     }
 })();

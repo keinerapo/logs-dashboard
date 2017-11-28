@@ -89,4 +89,23 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="text-center text-muted">STATS</h3>
+                    <div class="col-sm-3 col-md-3">
+                        <dl>
+                            <div class="col-xs-12 descrip_show"> <dt class="text-primary">Total Average Response Time:</dt>
+                                <dd>{{vm.t_average_resp}} milliseconds</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                         <nvd3 options="vm.options" data="vm.data"></nvd3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
